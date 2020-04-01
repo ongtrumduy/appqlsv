@@ -1,0 +1,68 @@
+.user-container {
+    border-style: groove;
+    color: #000;
+}
+
+.user-container .user-header {
+    color: rgb(240, 71, 141);
+}
+
+.user-container .user-content .user-menu {
+    background-color: rgb(224, 108, 153);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    height: 60px;
+    flex-grow: 0;
+    color: rgb(247, 247, 247);
+}
+
+.user-container .user-content .user-menu input {
+    height: 30px;
+    border-radius: 30px;
+    outline: none;
+    margin: 0 20px 0 20px;
+}
+
+.user-container .user-content .user-menu .user-menu-search input {
+    flex-grow: 10;
+    margin: 0 100px 0 70px;
+    width: 350px;
+}
+
+/* .user-container .user-content .user-menu .user-menu-home input {
+    margin: 0 10px 0 50px;
+} */
+
+.user-container .user-body {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-end;
+    border-style: groove;
+    height: 500px;
+}
+
+.user-container .user-body .user-body-render {
+    border-style: groove;
+    width: 70%;
+}
+
+.user-container .user-body .user-body-online {
+    padding: 40px;
+    border-style: groove;
+    width: 30%;
+}
+
+.user-container .user-body .user-body-online .user-body-online-title {
+    background-color: chartreuse;
+}
+
+.user-container .user-footer {
+    border-style: groove;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgb(27, 27, 27);
+    color: white;
+}

@@ -7,40 +7,51 @@ export default class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            iLogin: "Log"
+            update_login: "Log"
         }
     }
 
     updateMain = () => {
-        switch (this.state.iLogin) {
-            case "Log": return (<div><LogPage /></div>);
-            case "Admin": return (<div><AdminDashBoard /></div>);
-            case "User": return (<div><UserDashBoard /></div>);
-            default:
+        switch (this.state.update_login) {
+            case "Admin": return (
+                <AdminDashBoard
+                    update_login={this.updateLog}
+                />)
+            case "User": return (
+                <UserDashBoard
+                    update_login={this.updateLog}
+                />)
+            default: return (
+                <LogPage
+                    update_userDB={this.updateUser}
+                    update_adminDB={this.updateAdmin}
+                />)
         }
     }
 
     updateLog = () => {
         this.setState({
-            iLogin: "Log"
+            update_login: "Log"
         })
     }
 
     updateAdmin = () => {
         this.setState({
-            iLogin: "Admin"
+            update_login: "Admin"
         })
     }
 
     updateUser = () => {
         this.setState({
-            iLogin: "User"
+            update_login: "User"
         })
     }
 
     render() {
-        return (<div>
-            {this.updateMain()}
-        </div>)
+        return (
+            <div>
+                {this.updateMain()}
+            </div>
+        )
     }
 }

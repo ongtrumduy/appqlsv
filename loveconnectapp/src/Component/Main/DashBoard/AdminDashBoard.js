@@ -1,131 +1,85 @@
-import React from "react"
+import React from "react";
+import "./AdminDashBoard.css"
 import request from "request";
-import AccCount from "../Content/AdminFile/AccessCount";
-import AddSub from "../Content/AdminFile/AddSubject";
-import ManaAcc from "../Content/AdminFile/ManageAccount";
-import UpTerm from "../Content/AdminFile/UpdateTerm";
-import ADHome from "../Content/AdminFile/ADHome";
-import moment from "moment";
-
+import Home from "../../Content/Home";
+import Friend from "../../Content/Friend";
+import Message from "../../Content/Message";
+import Notify from "../../Content/Notify";
+import Profile from "../../Content/Profile"
 
 
 export default class AdminDashBoard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // fullname: "",
-            // subjectlist: [],
-            // userlist: [],
-            // term: "",
-            // week: ""
+            content_state: 0
         };
     }
 
-    // LoadHelloData = callname => {
-    //     var options = {
-    //         method: "POST",
-    //         url: "http://localhost:8081/AdminDashBoard",
-    //         headers: {
-    //             "cache-control": "no-cache",
-    //             Connection: "keep-alive",
-    //             "Content-Length": "0",
-    //             "Accept-Encoding": "gzip, deflate",
-    //             Host: "localhost:8081",
-    //             "Cache-Control": "no-cache",
-    //             Accept: "*/*",
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //             checkLogout: "1"
-    //         }),
-    //     };
-
-    //     request(options, function (error, response, body) {
-    //         if (error) throw new Error(error);
-    //         var bod = JSON.parse(body);
-    //         callname(bod.name, bod.sublist, bod.userslist, bod.term, bod.week);
-    //     });
-    // };
-
-    callname = (_name, _sublist, _userslist, _term, _week) => {
-        this.setState({
-            fullname: _name,
-            subjectlist: _sublist,
-            userlist: _userslist,
-            term: _term,
-            week: _week
-        });
-    };
-
-    UNSAFE_componentWillMount = () => {
-        this.LoadHelloData(this.callname);
-    };
-
     updateContentState = state => {
-        this.setState({ contentState: state });
+        this.setState({ content_state: state });
     };
 
     renderContent = () => {
         switch (this.state.contentState) {
-            case 1: return (<div className="ADql"><AccCount /></div>);
-            case 2: return (<div className="ADql"><ManaAcc userlist={this.state.userlist} /></div>);
-            case 3: return (<div className="ADql"><AddSub sublist={this.state.subjectlist} /></div>);
-            case 4: return (<div className="ADql"><UpTerm /></div>);
-            default: return (<div className="ADql"><ADHome /></div>);
+            case 1: return (<div className="body-render"><Profile /></div>);
+            case 2: return (<div className="body-render"><Friend /></div>);
+            case 3: return (<div className="body-render"><Message /></div>);
+            case 4: return (<div className="body-render"><Notify /></div>);
+            default: return (<div className="body-render"><Home /></div>);
         }
     };
 
-    render() {
-        console.log(this.state.subjectlist);
+    userDashBoard = () => {
         return (
             <div>
                 <div className="container">
                     <div className="header">
-                        <h1>APP TRÒ CHUYỆN VÀ HẸN HÒ SINH VIÊN</h1>
+                        <h1>APP KẾT NỐI TRÒ CHUYỆN VÀ HẸN HÒ SINH VIÊN</h1>
                     </div>
-                    <div className="s1">
-                        <p>Học kỳ {this.state.term},{this.state.week}, {moment().format('dddd')} ngày {moment().format('DD/MM/YYYY')}</p>
-                    </div>
-                    <div className="ADbody">
-                        <div className="Hello">Xin chào, {this.state.fullname}</div>
-                        <div className="AdMenu">
-                            <ul>
-                                <li>
-                                    <div className="AD">
-                                        <input type="button" value="THỐNG KÊ TRUY CẬP" onClick={() => { this.updateContentState(1); }} />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="AD">
-                                        <input type="button" value="TÀI KHOẢN TRUY CẬP" onClick={() => { this.updateContentState(2) }} />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="AD">
-                                        <input type="button" value="DANH SÁCH BÁO CÁO" onClick={() => { this.updateContentState(3); }} />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="AD">
-                                        <input type="button" value="CẬP NHẬT THÔNG BÁO" onClick={() => { this.updateContentState(4); }} />
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="AD">
-                                        <input type="button" value="ĐĂNG XUẤT" onClick={() => { this.props.updateLogout() }} />
-                                    </div>
-                                </li>
-                            </ul>
+                    <div className="content">
+                        <div className="user-sub-menu">
+                            <p>Xin chào, {this.state.fullname}</p>
+                            <input className="logout" type="button" value="ĐĂNG XUẤT" onClick={() => { this.props.update_login(); }} />
+                            <input className="change-password" type="button" value="ĐỔI MẬT KHẨU" onClick={() => { this.updateContentState(5) }} />
+                        </div>" type="button" value="ĐỔI MẬT KHẨU" onClick={() => { this.updateContentState(1.2) }} /> */}
+                        <div className="menu">
+
+                            <div className="menu-0">
+                                <input type="button" value="TRANG CHỦ" onClick={() => { this.updateContentState(0); }} />
+                            </div>
+
+                            <div className="menu-1">
+                                <input type="button" value="BẠN BÈ" onClick={() => { this.updateContentState(1) }} />
+                            </div>
+
+                            <div className="menu-2">
+                                <input type="button" value="TIN NHẮN" onClick={() => { this.updateContentState(2); }}></input>
+                            </div>
+
+                            <div className="menu-3">
+                                <input type="button" value="THÔNG BÁO" onClick={() => { this.updateContentState(3); }}></input>
+                            </div>
+
+                            <div className="menu-4">
+                                <input type="button" value="LIÊN HỆ" onClick={() => { this.updateContentState(4); }} />
+                            </div>
+
+                            <div className="menu-5">
+                                <input type="button" value="GIỚI THIỆU" onClick={() => { this.updateContentState(5); }} />
+                            </div>
+
                         </div>
-                        <div className="showContent">
+                        <div className="body">
                             {this.renderContent()}
                         </div>
-                    </div>
-                    <div className="AdS1">
+
 
                     </div>
+                    {/* <div className="s2"></div> */}
+
                     <div className="footer">
-                        <p>App nói chuyện và hẹn hò Sinh viên ver 1.0</p>
+                        <p>App kết nối trò chuyện và hẹn hò Sinh viên ver 1.0</p>
                         <p>Design by Project 1-<a href="https://www.facebook.com/thoiloanhhung">Phạm Duy</a>- Đại học Bách khoa Hà Nội</p>
                         <p>
                             Hanoi University of Science and Technology - No. 1, Dai Co Viet
@@ -134,6 +88,16 @@ export default class AdminDashBoard extends React.Component {
                     </div>
                 </div>
             </div >
+        );
+    }
+
+    render() {
+        return (
+            <div>
+                {this.userDashBoard()}
+            </div>
         )
     }
+
+
 }
