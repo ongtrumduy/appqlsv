@@ -70,6 +70,7 @@ h2 {
     color: #000;
     font-size: 15px;
     text-align: center;
+    cursor: pointer;
 }
 
 .register .login-return-button input {
@@ -79,4 +80,5 @@ h2 {
     color: rgb(255, 0, 0);
     font-size: 15px;
     text-align: center;
+    cursor: pointer;
 }

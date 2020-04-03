@@ -1,0 +1,32 @@
+table, td {
+    border: 1px solid #ccc;
+    overflow: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    overflow: auto;
+}
+
+tbody {
+    overflow: auto;
+}
+
+td {
+    padding: 10px;
+}
+
+td:first-child {
+    text-align: left;
+    width: 420px;
+}
+
+td:last-child {
+    width: 20px;
+}
+
+tr:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
